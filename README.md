@@ -7,7 +7,7 @@ Please consider **giving this repository a ⭐ Star!** It's a quick way to show 
 *   **Increases visibility:** More 42 students can find and benefit from it.
 *   **Motivates development:** Your support encourages improvements and new features!
 
-[![GitHub Stars](https://img.shields.io/github/stars/AbdallahZerfaoui/42PhilosophersHelper?style=social)](https://github.com/YOUR_USERNAME/42PhilosophersHelper)
+[![GitHub Stars](https://img.shields.io/github/stars/AbdallahZerfaoui/42PhilosophersHelper?style=social)](https://github.com/AbdallahZerfaoui/42PhilosophersHelper)
 ---
 
 **42PhilosophersHelper** is a semi-automated testing tool designed for the **Philosophers** project in the **42 curriculum**. It helps you validate the correctness and robustness of your implementation by running various test cases and checking for compliance with expected behavior. 
