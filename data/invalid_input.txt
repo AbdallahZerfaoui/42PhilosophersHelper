@@ -62,7 +62,19 @@ should error and not run (no crashing)
 should error and not run (no crashing) - may act as the case 10 800 200 200 5 
 9 18446744073709552016 100 100 5
 should error and not run (no crashing)
+9 400 18446744073709551726 100 5 
+should error and not run (no crashing)
 9 400 100 18446744073709551726 5 
 should error and not run (no crashing)
-9 400 18446744073709551726 100 5 
+9 400 100 100 18446744073709551726 
+should error and not run (no crashing)
+4294967295 800 200 200 5
+should error and not run (no crashing)
+9 4294967295 100 100 5
+should error and not run (no crashing)
+9 400 4294967295 100 5 
+should error and not run (no crashing)
+9 400 100 4294967295 5 
+should error and not run (no crashing)
+9 400 100 100 4294967295 
 should error and not run (no crashing)
