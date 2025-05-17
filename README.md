@@ -30,7 +30,7 @@ This tool streamlines testing, identifies potential threading issues, and saves 
 
 More tests can be added by editing the appropriate ```.txt``` files with the input and expected outcome.
 
-![screenshot of tester being run](helper_case_2.png)
+![screenshot of tester being run](docs/helper_case_2.png)
 ## Installation
 
 1. Clone the repository in your root directory:
