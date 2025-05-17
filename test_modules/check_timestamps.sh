@@ -19,10 +19,10 @@ check_timestamps()
         echo "Running with $nbr_philos philosophers..."
 		if [ $nbr_philos -lt 250 ]; then #TODO: change this if i did it when i thought that i may 
 		#use a different number of meals for different number of philosophers.
-        	python3 $SCRIPT_DIR/check_timestamps.py "$EXECUTABLE" "$nbr_philos" $TIME_TO_DIE $TIME_TO_EAT $TIME_TO_SLEEP $NBR_MEALS
+        	python3 $SCRIPT_DIR/checkers/check_timestamps.py "$EXECUTABLE" "$nbr_philos" $TIME_TO_DIE $TIME_TO_EAT $TIME_TO_SLEEP $NBR_MEALS
 			printf "${RESET}"
 		else
-			python3 $SCRIPT_DIR/check_timestamps.py "$EXECUTABLE" "$nbr_philos" $TIME_TO_DIE $TIME_TO_EAT $TIME_TO_SLEEP $NBR_MEALS
+			python3 $SCRIPT_DIR/checkers/check_timestamps.py "$EXECUTABLE" "$nbr_philos" $TIME_TO_DIE $TIME_TO_EAT $TIME_TO_SLEEP $NBR_MEALS
 			printf "${RESET}"
 		fi
 		
