@@ -14,8 +14,17 @@ Your philo passes the obvious tests, but evaluation fails for reasons you can’
 
 **Quick Start:**  
 ```bash
-git clone https://github.com/AbdallahZerfaoui/42PhilosophersHelper.git  
-cd 42PhilosophersHelper && ./test.sh  
+git clone https://github.com/AbdallahZerfaoui/42PhilosophersHelper.git ~/42PhilosophersHelper
+chmod +x ~/42PhilosophersHelper/test.sh
+
+echo 'alias philotest="~/42PhilosophersHelper/test.sh"' >> ~/.zshrc && source ~/.zshrc
+OR
+echo 'alias philotest="~/42PhilosophersHelper/test.sh"' >> ~/.bashrc && source ~/.bashrc
+```  
+Now you can run **42PhilosophersHelper** from anywhere! Simply go into your project folder and run:
+
+```bash
+philotest
 ```
 
 **Features you'll love:**  
