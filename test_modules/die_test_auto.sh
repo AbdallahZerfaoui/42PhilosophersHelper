@@ -40,7 +40,7 @@ draw_progress_bar() {
     for ((i = 0; i < num_fill; i++)); do 
         printf "%s#" "$(get_color_code "$percent")"  # Apply color to each #
     done
-    printf "\033[0m"  # Reset color after filled blocks 
+    printf "${RESET}"  # Reset color after filled blocks 
 
     for ((i = 0; i < num_empty; i++)); do 
         printf " "  # Empty spaces
