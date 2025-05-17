@@ -26,7 +26,7 @@ draw_progress_bar() {
     local total=$2
     local width=40  # Progress bar width
     local percent=$((progress * 100 / total))
-
+	# printf "total: $total, progress: $progress, percent: $percent\n"
     # Get smooth transition color
     local color_code
     color_code=$(get_color_code "$percent")
@@ -40,7 +40,7 @@ draw_progress_bar() {
     for ((i = 0; i < num_fill; i++)); do 
         printf "%s#" "$(get_color_code "$percent")"  # Apply color to each #
     done
-    printf "\033[0m"  # Reset color after filled blocks
+    printf "\033[0m"  # Reset color after filled blocks 
 
     for ((i = 0; i < num_empty; i++)); do 
         printf " "  # Empty spaces
@@ -55,6 +55,8 @@ die_test_auto () {
     local total_tests=$(wc -l < "$SCRIPT_DIR/data/yes-die.txt")
     local completed_tests=0
     local test_timeout=10  # Max time for a single test
+
+	total_tests=$((total_tests / 2))
 
     while IFS="" read -r -u 3 input || [ -n "$input" ]; do
         read -r -u 3 result  # Read expected result description
