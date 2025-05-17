@@ -31,47 +31,39 @@ This tool streamlines testing, identifies potential threading issues, and saves 
 More tests can be added by editing the appropriate ```.txt``` files with the input and expected outcome.
 
 ![screenshot of tester being run](helper_case_2.png)
-
 ## Installation
 
-1. Clone the repository into the root directory of your **Philosophers** project:
+1. Clone the repository in your root directory:
 
     ```bash
-    git clone https://github.com/AbdallahZerfaoui/42PhilosophersHelper.git
+    git clone https://github.com/AbdallahZerfaoui/42PhilosophersHelper.git ~/42PhilosophersHelper
     ```
 
-2. Ensure your `philo` executable is ready by running `make` in your project directory.
+2. Ensure **42PhilosophersHelper** is executable by running:
 
-3. Navigate to the **42PhilosophersHelper** directory:
+	```bash
+	chmod +x ~/42PhilosophersHelper/test.sh
+	```
+
+3. Add **42PhilosophersHelper** to Your Shell (.zshrc or .bashrc)
 
     ```bash
-    cd 42PhilosophersHelper
+    echo 'alias philotest="~/42PhilosophersHelper/test.sh"' >> ~/.zshrc
+	source ~/.zshrc
+
+	echo 'alias philotest="~/42PhilosophersHelper/test.sh"' >> ~/.bashrc
+	source ~/.bashrc
     ```
 
 ## Usage
 
-If you haven't already, run ```make``` in your philo directory to create your ```./philo``` executable.  
-Then from within the LazyPhilosophersTester directory, run ```./test.sh``` to start the tester.  
-Tester takes an optional 2nd argument of the path to your ```philo``` executable.  
-
-Example:  
-```bash
-./test.sh ../philo
-```
-If not provided, the tester assumes the path is ```../philo``` - i.e. in same directory as tester directory.
-
-
-### Arguments
-
-- The script takes an optional argument for the path to your `philo` executable. 
-- If not provided, it assumes the default path (`../philo`).
-
-#### Example:
+Now you can run **42PhilosophersHelper** from anywhere! Simply go into your project folder and run:
 
 ```bash
-./test.sh ../philo
+philotest
 ```
 
+If the project is not compiled already, **42PhilosophersHelper** will try to do it for you. So make sure your Makefile works properly!
 ### Custom Timer for Tests
 
 During execution, the script prompts you to set a timer for the tests. You can:
@@ -173,4 +165,6 @@ Helgrind is used to detect potential threading issues in your `philo` program. H
 
 ## Credits
 Timed-checker Python script ```PhilosophersChecker.py``` [(link)](https://gist.github.com/jkctech/367fad4aa01c820ffb1b8d29d1ecaa4d) was written by [JKCTech](https://gist.github.com/jkctech) and modified slightly by me [MichelleJiam](https://gist.github.com/jkctech).  
-[Progress bar function](https://stackoverflow.com/a/52581824) written by Vagiz Duseev, found on StackOverflow.
+[Progress bar function](https://stackoverflow.com/a/52581824) written by Vagiz Duseev, found on StackOverflow.  
+
+The bonus part was written by Jan Oltmann [(Github)](https://github.com/EstivalSolstice).
