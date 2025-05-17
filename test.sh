@@ -39,10 +39,10 @@ spinner $compile_pid
 
 # Move the executables from the project directory (if they exist) to the tester directory
 if [ -f "../philo" ]; then
-    mv ../philo ./
+    cp ../philo ./
 fi
 if [ -f "../philo_bonus" ]; then
-    mv ../philo_bonus ./
+    cp ../philo_bonus ./
 fi
 
 # Check if the executables exist and are executable, then show status with checkmarks or crosses
