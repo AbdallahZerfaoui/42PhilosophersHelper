@@ -1,13 +1,38 @@
 #!/bin/bash
 
-source ./load_scripts.sh
-source ./setup/colors.sh
-source ./setup/constants.sh
+SCRIPT_DIR="$(dirname "$(readlink -f "$0" 2>/dev/null || echo "$0")")"
+
+source "$SCRIPT_DIR/load_scripts.sh"
+source "$SCRIPT_DIR/setup/colors.sh"
+source "$SCRIPT_DIR/setup/constants.sh"
+
+# Define directories
+TEST_MODULES_DIR="$SCRIPT_DIR/test_modules"
+DATA_DIR="$SCRIPT_DIR/data"
+
+# Source all .sh files in test_modules directory
+for script in "$TEST_MODULES_DIR"/*.sh; do
+    [ -f "$script" ] && source "$script"
+done
+
+# Load all .txt files from data directory (e.g., for reading reference values)
+find "$DATA_DIR" -type f -name "*.txt" | while read -r data_file; do
+#    echo "Loading data file: $data_file" 2>/dev/null
+    cat "$data_file" >/dev/null  # Dummy read operation
+done
+
+# Source every other file in the script's directory (except itself)
+for file in "$SCRIPT_DIR"/*.sh; do
+    [ -f "$file" ] && [ "$file" != "$0" ] && source "$file" 2>/dev/null
+done
 
 # Counters
 PASS=0
 FAIL=0
 TESTS=0
+
+# Default project path is the parent directory
+PROJECT_PATH=${1:-$(pwd)}
 
 # Spinner function to show an animated progress indicator during compilation
 spinner() {
@@ -23,13 +48,19 @@ spinner() {
     printf "\rCompilation complete!    \n"
 }
 
+# Ensure the provided path exists
+if [ ! -d "$PROJECT_PATH" ]; then
+    printf "${RED}Error: Provided path '$PROJECT_PATH' does not exist or is not a directory.${RESET}\n"
+    exit 1
+fi
+
 # Clean up any previously copied executables in the tester directory
 rm -f ./philo ./philo_bonus
 
-# Compile the project in the parent directory while suppressing Makefile output
+# Compile the project in the given path while suppressing Makefile output
 printf "Compiling the project...\n"
 (
-  cd .. && \
+  cd "$PROJECT_PATH" && \
   make all > /dev/null 2>&1 && \
   make bonus > /dev/null 2>&1 && \
   make clean > /dev/null 2>&1
@@ -38,12 +69,13 @@ compile_pid=$!
 spinner $compile_pid
 
 # Move the executables from the project directory (if they exist) to the tester directory
-if [ -f "../philo" ]; then
-    cp ../philo ./
+if [ -f "$PROJECT_PATH/philo" ]; then
+    mv "$PROJECT_PATH/philo" ./ 2>/dev/null
 fi
-if [ -f "../philo_bonus" ]; then
-    cp ../philo_bonus ./
+if [ -f "$PROJECT_PATH/philo_bonus" ]; then
+    mv "$PROJECT_PATH/philo_bonus" ./ 2>/dev/null
 fi
+
 
 # Check if the executables exist and are executable, then show status with checkmarks or crosses
 if [ -x "./philo" ]; then

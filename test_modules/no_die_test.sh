@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR="$(dirname "$(readlink -f "$0" 2>/dev/null || echo "$0")")"
+
 no_die_test () 
 {
 	printf "\n${CYAN}=== Starting tests where a philosopher should NOT die ===\n${RESET}"
@@ -38,7 +40,7 @@ no_die_test ()
 			exit 0
 		fi
 		(( TESTS++ ))
-	done 3< ./data/no-die.txt   # open file is assigned fd 3
+	done 3< "$SCRIPT_DIR/data/no-die.txt"   # open file is assigned fd 3
 	printf "\nNo-Die Tests: ${GREEN}PASSED${RESET}: $PASS/$TESTS | ${RED}FAILED${RESET}: $FAIL/$TESTS\n"
 	exec 3<&-	# close fd 3
 }

@@ -2,11 +2,16 @@
 
 check_limited_meals()
 {
+	# Get the directory of the script
+	SCRIPT_DIR="$(dirname "$(readlink -f "$0" 2>/dev/null || echo "$0")")"
+	DATA_FILE="$SCRIPT_DIR/data/no-die-limited-meals.txt"
+
 	# Check if the input file exists
-	if [[ ! -f ./data/no-die-limited-meals.txt ]]; then
-	    echo -e "${RED}Error: File ./data/no-die-limited-meals.txt not found.${RESET}"
+	if [[ ! -f "$DATA_FILE" ]]; then
+	    echo -e "${RED}Error: File $DATA_FILE not found.${RESET}"
 	    return 1
 	fi	
+
 	# Check if the program executable is provided
 	if [[ -z "$1" ]]; then
 	    echo -e "${RED}Error: No executable provided.${RESET}"
@@ -19,14 +24,15 @@ check_limited_meals()
 	local failed=0
 	local total=0
 	local total_meals=0
+	local line_number=0
 
     while IFS="" read -r line || [[ -n "$line" ]]; do
-        # Skip empty lines
-        # Skip empty lines
+        # Skip every second line (if needed)
         ((line_number++))
         if ((line_number % 2 == 0)); then
             continue
         fi
+        # Skip empty lines
         if [[ -z "$line" ]]; then
             continue
         fi
@@ -37,12 +43,11 @@ check_limited_meals()
 
         # Run the program with the limited meals input
         echo "Testing limited meals input: $line"
-        output=$($1 $line 2>&1)
+        output=$("$1" $line 2>&1)
         exit_code=$?
 
         # Count occurrences of "is eating"
         local eat_count=$(echo "$output" | grep -c "is eating")
-		# printf "Eating count: $eat_count\n"
 
         # Check the result: OK if eat_count >= nbr_philo * nbr_meals and no errors
 		total_meals=$((nbr_philo * nbr_meals))
@@ -50,11 +55,12 @@ check_limited_meals()
             echo -e "${GREEN}OK: Handled limited meals correctly. Eating count: $eat_count${RESET}"
             ((passed++))
         else
-            echo -e "${RED}KO: Eating count ($eat_count) is less than expected (${total_meals}}).${RESET}"
+            echo -e "${RED}KO: Eating count ($eat_count) is less than expected (${total_meals}).${RESET}"
             ((failed++))
         fi
-	done < ./data/no-die-limited-meals.txt	
+	done < "$DATA_FILE"
+
 	total=$((passed+failed))
 	echo -e "${CYAN}=== Limited meals tests completed ===${RESET}"
-	echo -e "${GREEN}PASSED: ${passed}/${total} | ${RED}FAILED: ${failed}/${total}"
+	echo -e "${GREEN}PASSED: ${passed}/${total} | ${RED}FAILED: ${failed}/${total}${RESET}"
 }

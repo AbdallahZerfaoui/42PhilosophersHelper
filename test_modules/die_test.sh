@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR="$(dirname "$(readlink -f "$0" 2>/dev/null || echo "$0")")"
+
 die_test () 
 {
 	printf "\n${CYAN}=== Starting tests where program should end with death or enough eaten ===\n${RESET}"
@@ -14,6 +16,6 @@ die_test ()
 		else
 			exit 0
 		fi
-	done 3< ./data/yes-die.txt  # open file is assigned fd 3
+	done 3< "$SCRIPT_DIR/data/yes-die.txt"  # open file is assigned fd 3
 	exec 3<&-	# close fd 3
 }

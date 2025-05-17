@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR="$(dirname "$(readlink -f "$0" 2>/dev/null || echo "$0")")"
+
 check_invalid_inputs()
 {
     # Check if the input file exists
-    if [[ ! -f ./data/invalid_input.txt ]]; then
+    if [[ ! -f "$SCRIPT_DIR/data/invalid_input.txt" ]]; then
         echo -e "${RED}Error: File ./data/invalid_input.txt not found.${RESET}"
         return 1
     fi
@@ -47,7 +49,7 @@ check_invalid_inputs()
 			echo -e "${RED}KO: Program did not handle invalid input correctly.${RESET}"
 			((failed++))
 		fi
-    done < ./data/invalid_input.txt
+    done < "$SCRIPT_DIR/data/invalid_input.txt"
 	total=$((passed+failed))
     echo -e "${CYAN}=== Invalid input tests completed ===${RESET}"
     echo -e "${GREEN}PASSED: ${passed}/${total} | ${RED}FAILED: ${failed}/${total}"
