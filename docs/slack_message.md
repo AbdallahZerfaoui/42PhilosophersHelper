@@ -1,7 +1,9 @@
 
 **42PhilosophersHelper: Your New Best Friend for the Philosophers Project!**  
 
-Your philo passes the obvious tests, but evaluation fails for reasons you can’t reproduce. I built **42PhilosophersHelper** after seeing these exact issues in evals. **42PhilosophersHelper** automates the heavy lifting!  
+Your philo passes the obvious tests, but evaluation fails for reasons you can’t reproduce. I built **42PhilosophersHelper** after seeing these exact issues in evals. We built **42PhilosophersHelper** after seeing these exact issues in evals, and the more people who use and share it, the better it gets at catching these tricky bugs! **42PhilosophersHelper** automates the heavy lifting!  
+
+*We're building this for the community – if you find it useful, sharing it helps us all improve it faster!*
 
 **TL;DR:** Use this  :link: **GitHub**: [github.com/AbdallahZerfaoui/42PhilosophersHelper](https://github.com/AbdallahZerfaoui/42PhilosophersHelper)   to test your code :blush:  
 
@@ -43,4 +45,4 @@ philotest
 
 *"Because philosophers should die of hunger, not from your code bugs."*  
 
-PS: Contributions welcome! Found a bug or have test ideas? Open an issue/PR :blush:  
+PS: Contributions welcome! Found a bug or have test ideas? Open an issue/PR. **And if you find this tool useful, please share it with your fellow cadets! More users mean more feedback and a faster path to making it even better for everyone.** :blush: :rocket:
