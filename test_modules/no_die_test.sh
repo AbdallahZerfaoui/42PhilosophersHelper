@@ -17,7 +17,7 @@ no_die_test ()
 		read -rs -n 1 -p $'Press ENTER to start test, press any other key to exit tester...\n' key   # read from stdin, accepting only 1 char
 		if [[ $key == "" ]] ; then
 			printf "\n"
-			./PhilosophersChecker.py "$1 $input" $timeout > /dev/null & pid=$!   # silence checker output and run in bg
+			$SCRIPT_DIR/checkers/PhilosophersChecker.py "$1 $input" $timeout > /dev/null & pid=$!   # silence checker output and run in bg
 			local elapsed=0
 			while ps -p $pid &>/dev/null; do    # check if checker script still running
 				draw_progress_bar $elapsed $timeout "seconds" # TODO: fix extra space at end of progress bar, extra )
