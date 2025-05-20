@@ -14,7 +14,7 @@ no_die_test_auto ()
 	do
 		read -r -u 3 result    # read desired result description from input.txt
 		printf "\nTest: ${BLUEBG}${WHITE}[$input]${RESET} | ${PURP}$result${RESET}\n\n"
-		"$SCRIPT_DIR/PhilosophersChecker.py" "$1 $input" $timeout > /dev/null & pid=$!   # silence checker output and run in bg
+		"$SCRIPT_DIR/checkers/PhilosophersChecker.py" "$1 $input" $timeout > /dev/null & pid=$!   # silence checker output and run in bg
 		local elapsed=0
 		while ps -p $pid &>/dev/null; do    # check if checker script still running
 			draw_progress_bar $elapsed $timeout "seconds" # TODO: fix extra space at end of progress bar, extra )
