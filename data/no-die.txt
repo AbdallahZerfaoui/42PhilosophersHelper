@@ -10,6 +10,12 @@ no one should die
 no one should die
 4 405 200 200
 no one should die
+5 610 200 400
+no one should die
+5 310 100 200
+no one should die
+5 190 60 120
+no one should die
 100 410 200 200
 no one should die
 200 410 200 200

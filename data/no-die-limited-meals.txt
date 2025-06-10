@@ -12,6 +12,12 @@ no one should die, simulation should stop after 3 eats
 no one should die, simulation should stop after 3 eats
 5 800 200 200 7
 no one should die, simulation should stop after 7 eats
+5 610 200 400 7
+no one should die, simulation should stop after 7 eats
+5 310 100 200 7
+no one should die, simulation should stop after 7 eats
+5 190 60 120 7
+no one should die, simulation should stop after 7 eats
 4 410 200 200 10
 no one should die, simulation should stop after 10 eats
 5 800 200 200 3
