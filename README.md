@@ -15,6 +15,58 @@ Please consider **giving this repository a ⭐ Star!** It's a quick way to show 
 This tool streamlines testing, identifies potential threading issues, and saves you time by automating repetitive tasks.
 
 
+## 🤔 Important Assumptions
+
+To work its magic, the tester needs to make a few assumptions about how your `philosophers` program behaves. If your project doesn't follow these conventions, the tester might give you a `KO` or freeze, even if your code seems to work on its own.
+
+Please make sure your program meets these criteria:
+
+#### 1. Argument Handling & Errors
+*   **Invalid Input:** When given invalid arguments (e.g., non-numeric values, negative numbers, wrong number of arguments), your program must:
+    1.  Print an error message to the standard output.
+    2.  The error message **must contain the word "invalid"**. For example, `Error: Invalid arguments.` works perfectly.
+    3.  **Exit immediately** with a non-zero status code. It should **not** start the simulation.
+
+    ```bash
+    # This should print an error and stop
+    ./philo 4 800 200 200 -5 
+
+    # The tester waits for "invalid" and an exit. It will freeze if you do this:
+    # "Number of meals is invalid, but doing the simulation anyway!"
+    ```
+
+#### 2. Program Termination
+*   The simulation must stop immediately under one of two conditions:
+    *   A philosopher dies.
+    *   All philosophers have eaten the required number of meals (if the `number_of_times_each_philosopher_must_eat` argument is provided).
+*   The tester uses its own `timeout` as a safety net, but it expects your program to terminate correctly on its own.
+
+#### 3. Output Formatting
+*   The tester parses your program's output to check its status. The format must be **exactly** as specified in the project subject, without extra characters or missing spaces.
+*   The standard format is: `timestamp_in_ms philo_id action`
+    *   `100 1 has taken a fork`
+    *   `200 2 is eating`
+    *   `450 3 died`
+*   Any deviation from this format will likely cause the test to fail.
+
+#### 4. Atomic `printf` (No Mixed Logs)
+*   Each status line must be printed in a single, atomic operation. This is usually achieved by protecting your `printf` calls with a mutex.
+*   The "Mixed Logs" test specifically checks for this. If your output looks scrambled, it's a sign of a data race on `stdout`.
+
+    ```bash
+    # BAD ❌ (Mixed logs)
+    102 1 is eati103 2 has taken a forkng
+    
+    # GOOD ✅ (Atomic logs)
+    102 1 is eating
+    103 2 has taken a fork
+    ```
+
+#### 5. Executable Name
+*   The tester script (`test.sh`) looks for an executable named `philo` in the actual directory. Make sure your `Makefile` produces a binary with this name.
+
+
+
 ## Features
 
 - **Test Categories**:
