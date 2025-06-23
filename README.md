@@ -4,7 +4,6 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/AbdallahZerfaoui/42PhilosophersHelper)
 ![GitHub issues](https://img.shields.io/github/issues/AbdallahZerfaoui/42PhilosophersHelper)
 ![GitHub license](https://img.shields.io/github/license/AbdallahZerfaoui/42PhilosophersHelper)
-[![GitHub Stars](https://img.shields.io/github/stars/AbdallahZerfaoui/42PhilosophersHelper?style=social)](https://github.com/AbdallahZerfaoui/42PhilosophersHelper)
 
 
 ![Concurrency in C language: The Dining Philosophers Problem](docs/philos.png)	
@@ -162,14 +161,6 @@ Open `yes-die.txt` and add the following two lines to the end of the file:
 ```text
 4 310 200 100
 A philosopher should die due to the short time_to_die.
-## Test Files
-
-The testing script reads scenarios from predefined `.txt` files:
-
-1. **`no-die.txt`**: Tests where no philosopher should die.
-2. **`yes-die.txt`**: Tests where the program should stop due to death or enough meals consumed.
-3. **`invalid_inputs.txt`**: Edge cases and invalid input tests.
-4. **`limited_meals.txt`**: Tests for scenarios with restricted meals per philosopher.
 ```
 
 ## Helgrind Testing
