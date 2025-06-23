@@ -1,14 +1,12 @@
-# 42PhilosophersHelper
+# 42PhilosophersHelper	
 
 
-✨ **Found 42PhilosophersHelper useful for your Philosophers project?** ✨
-
-Please consider **giving this repository a ⭐ Star!** It's a quick way to show your appreciation and helps significantly:
-*   **Increases visibility:** More 42 students can find and benefit from it.
-*   **Motivates development:** Your support encourages improvements and new features!
-
+![GitHub last commit](https://img.shields.io/github/last-commit/AbdallahZerfaoui/42PhilosophersHelper)
+![GitHub issues](https://img.shields.io/github/issues/AbdallahZerfaoui/42PhilosophersHelper)
+![GitHub license](https://img.shields.io/github/license/AbdallahZerfaoui/42PhilosophersHelper)
 [![GitHub Stars](https://img.shields.io/github/stars/AbdallahZerfaoui/42PhilosophersHelper?style=social)](https://github.com/AbdallahZerfaoui/42PhilosophersHelper)
----
+
+
 ![Concurrency in C language: The Dining Philosophers Problem](docs/philos.png)	
 
 **42PhilosophersHelper** is a semi-automated testing tool designed for the **Philosophers** project in the **42 curriculum**. It helps you validate the correctness and robustness of your implementation by running various test cases and checking for compliance with expected behavior. 
@@ -83,7 +81,16 @@ Please make sure your program meets these criteria:
 
 More tests can be added by editing the appropriate ```.txt``` files with the input and expected outcome.
 
-![screenshot of tester being run](docs/helper_case_2.png)
+![screenshot of tester being run](docs/helper_case_2.png)	
+
+✨ **Found 42PhilosophersHelper useful for your Philosophers project?** ✨
+
+Please consider **giving this repository a ⭐ Star!** It's a quick way to show your appreciation and helps significantly:
+*   **Increases visibility:** More 42 students can find and benefit from it.
+*   **Motivates development:** Your support encourages improvements and new features!
+
+[![GitHub Stars](https://img.shields.io/github/stars/AbdallahZerfaoui/42PhilosophersHelper?style=social)](https://github.com/AbdallahZerfaoui/42PhilosophersHelper)
+---
 ## Installation
 
 1. Clone the repository in your root directory:
