@@ -134,8 +134,34 @@ The prompt:
 Please enter desired timer for tests or press ENTER to use default (10 seconds):
 ```
 
----
 
+## 🔧 Customizing Tests
+
+You can easily add your own test cases to challenge your `philo` program. The tester reads scenarios from four `.txt` files located in the `42PhilosophersHelper` directory.
+
+### Test Files
+
+*   `no-die.txt`: Scenarios where **no philosopher should die**. The test passes if the simulation runs for the full duration without a death.
+*   `yes-die.txt`: Scenarios where the simulation **must stop** before the timer ends. This can be due to a philosopher's death or because all philosophers have eaten enough.
+*   `invalid_inputs.txt`: Scenarios with invalid arguments. The test passes if your program prints an error containing the word "invalid" and exits.
+*   `limited_meals.txt`: Scenarios where the simulation must stop because the meal limit is reached. The test validates the total number of "is eating" logs.
+
+### How to Add a Test
+
+To add a new test, simply edit the appropriate `.txt` file. Each test case requires **exactly two lines**:
+
+1.  **The arguments** for your `philo` program, separated by spaces.
+2.  **A description** of the test case or the expected outcome. This description is printed to the console to help you follow along.
+
+#### Example: Adding a test to `yes-die.txt`
+
+Let's say you want to test a scenario where a philosopher dies quickly with `4 310 200 100`.
+
+Open `yes-die.txt` and add the following two lines to the end of the file:
+
+```text
+4 310 200 100
+A philosopher should die due to the short time_to_die.
 ## Test Files
 
 The testing script reads scenarios from predefined `.txt` files:
@@ -165,46 +191,6 @@ No philosopher should die.
 
 5 800 200 200 3
 Simulation should stop after 3 meals per philosopher.
-```
-
----
-
-## How It Works
-
-1. **No Death Tests**:
-   - The script runs scenarios where no philosopher should die.
-   - It checks if the simulation runs for the specified time without any deaths.
-
-2. **Death/Stop Tests**:
-   - Validates program behavior under death or stopping conditions.
-   - Prompts you to check the expected outcomes manually.
-
-3. **Invalid Input Tests**:
-   - Executes edge cases and invalid inputs to ensure the program doesn't crash and exits gracefully.
-
-4. **Limited Meals Tests**:
-   - Confirms that each philosopher eats the required number of meals.
-   - Compares the actual eating count to the expected total (`number_of_philosophers * number_of_meals`).
-
-5. **Test Results**:
-   - Each test displays a detailed result (`OK` or `KO`) based on the behavior of your program.
-   - A final summary shows the total passed and failed tests.
-
-
-### Adding tests
-If you wish to add your own tests, open either:
-1. ```no-die.txt``` for tests where philos aren't supposed to die, or
-2. ```yes-die.txt``` for tests where the program should stop (death, eaten enough, error).  
-
-The 1st line should be your test case, separated by spaces. This is what is inputted into your program.  
-The 2nd line should be the expected outcome. This is outputted during the tester for checking purposes.  
-
-Example:  
-```text
-4 310 200 100
-a philo should die
-5 800 200 200 7
-no one should die, simulation should stop after 7 eats
 ```
 
 ## Helgrind Testing
