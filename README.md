@@ -170,27 +170,6 @@ The testing script reads scenarios from predefined `.txt` files:
 2. **`yes-die.txt`**: Tests where the program should stop due to death or enough meals consumed.
 3. **`invalid_inputs.txt`**: Edge cases and invalid input tests.
 4. **`limited_meals.txt`**: Tests for scenarios with restricted meals per philosopher.
-
----
-
-## Adding Your Own Tests
-
-You can add custom test cases by editing the respective `.txt` files:
-
-### Format:
-
-- Each **test case** spans **two lines**:
-  1. **First Line**: Input arguments to the program.
-  2. **Second Line**: Description of the expected outcome.
-
-#### Example:
-
-```text
-5 800 200 200
-No philosopher should die.
-
-5 800 200 200 3
-Simulation should stop after 3 meals per philosopher.
 ```
 
 ## Helgrind Testing
