@@ -66,17 +66,14 @@ Please make sure your program meets these criteria:
 
 
 
-## Features
+## Why Use 42PhilosophersHelper?
 
-- **Test Categories**:
-  - **No Death**: Ensures no philosophers die during simulation (when they shouldn’t).
-  - **Death/Stop Conditions**: Validates the program behavior under scenarios like death, enough meals consumed, or invalid inputs.
-  - **Invalid Inputs**: Checks how the program handles incorrect or edge-case inputs.
-  - **Limited Meals**: Tests scenarios where the number of meals is restricted.
+This tester goes beyond simple checks to save you hours of debugging.	
 
-- **Custom Timer**: Allows you to specify a timer for tests or use a default value.
-
-- **Detailed Test Results**: Displays `OK` or `KO` results for each test, with summaries at the end.
+*   **✅ Comprehensive Test Suites:** Automatically runs dozens of scenarios covering invalid inputs, death conditions, and meal limits.
+*   **⏱️ Precise Deadlock Detection:** Catches subtle deadlocks by verifying that your program terminates *only when it should*.
+*   **Race Condition Detection**: Includes Helgrind integration via Docker to find tricky data races in your mutex implementation.
+*   **User-Friendly Output**: Clear `[OK]` or `[KO]` results with progress bars and a final summary. No more manually scanning logs!
 
 
 More tests can be added by editing the appropriate ```.txt``` files with the input and expected outcome.
