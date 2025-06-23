@@ -9,6 +9,7 @@ Please consider **giving this repository a ⭐ Star!** It's a quick way to show 
 
 [![GitHub Stars](https://img.shields.io/github/stars/AbdallahZerfaoui/42PhilosophersHelper?style=social)](https://github.com/AbdallahZerfaoui/42PhilosophersHelper)
 ---
+![Concurrency in C language: The Dining Philosophers Problem](docs/philos.png)	
 
 **42PhilosophersHelper** is a semi-automated testing tool designed for the **Philosophers** project in the **42 curriculum**. It helps you validate the correctness and robustness of your implementation by running various test cases and checking for compliance with expected behavior. 
 
